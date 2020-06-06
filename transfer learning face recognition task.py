@@ -28,17 +28,10 @@ for layer in model.layers:
     layer.trainable=False
 
 
-# In[33]:
-
-
-trainpath='dogbreed/train'
-testpath='dogbreed/test'
-
-
 # In[34]:
 
 
-folders=glob('monkey_breed/monkey_breed/train/*')
+folders=glob('/train/*')
 
 
 # In[35]:
@@ -116,12 +109,12 @@ train_datagen = ImageDataGenerator(
         horizontal_flip=True)
 test_datagen = ImageDataGenerator(rescale=1./255)
 training_set = train_datagen.flow_from_directory(
-        'monkey_breed/monkey_breed/train/',
+        '/train/',
         target_size=(224, 224),
         batch_size=32,
         class_mode='categorical')
 test_set = test_datagen.flow_from_directory(
-        'monkey_breed/monkey_breed/validation/',
+        '/validation/',
         target_size=(224, 224),
         batch_size=32,
         class_mode='categorical')
